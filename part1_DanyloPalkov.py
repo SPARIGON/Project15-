@@ -26,10 +26,21 @@ def save_data(names, e1, e2):
     print("Data saved successfully.")
 
 
+def show_results(names, e1, e2):
+    print("\nExam 1 Results:")
+    for i in range(len(names)):
+        if e1[i] != -1: # Only show if they sat the exam
+            print(f"{names[i]:<15} {e1[i]}")
+    print("\nExam 2 Results:")
+    for i in range(len(names)):
+        if e2[i] != -1: # Only show if they sat the exam
+            print(f"{names[i]:<15} {e2[i]}")
+
 def main():
 
     names, exam1, exam2 = load_data()
-    
+    show_results(names, exam1, exam2)
+
 
 if __name__ == "__main__":
     main()
