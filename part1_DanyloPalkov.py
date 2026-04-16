@@ -55,12 +55,29 @@ def missing_students(names, exam1, exam2):
             m2 += 1
     print(f"Total missing: {m2}")
 
+def top_marks(names, exam1, exam2):
+    # Top for Exam 1
+    if len(exam1) > 0:
+        high1 = max(exam1)
+        print(f"\nExam 1 High Score: {high1}")
+        for i in range(len(names)):
+            if exam1[i] == high1:
+                print(f"Student: {names[i]}")
+    # Top for Exam 2
+    if len(exam2) > 0:
+        high2 = max(exam2)
+        print(f"\nExam 2 High Score: {high2}")
+        for i in range(len(names)):
+            if exam2[i] == high2:
+                print(f"Student: {names[i]}")
+
 
 def main():
 
     names, exam1, exam2 = load_data()
     show_results(names, exam1, exam2)
     missing_students(names, exam1, exam2)
+    top_marks(names, exam1, exam2)
 
 
 if __name__ == "__main__":
