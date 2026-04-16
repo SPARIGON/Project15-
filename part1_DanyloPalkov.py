@@ -26,20 +26,41 @@ def save_data(names, e1, e2):
     print("Data saved successfully.")
 
 
-def show_results(names, e1, e2):
+def show_results(names, exam1, exam2):
     print("\nExam 1 Results:")
     for i in range(len(names)):
-        if e1[i] != -1: # Only show if they sat the exam
-            print(f"{names[i]:<15} {e1[i]}")
+        if exam1[i] != -1: # Only show if they sat the exam
+            print(f"{names[i]:<15} {exam1[i]}")
     print("\nExam 2 Results:")
     for i in range(len(names)):
-        if e2[i] != -1: # Only show if they sat the exam
-            print(f"{names[i]:<15} {e2[i]}")
+        if exam2[i] != -1: # Only show if they sat the exam
+            print(f"{names[i]:<15} {exam2[i]}")
+
+def missing_students(names, exam1, exam2):
+    # Exam 1
+    m1 = 0
+    print("\nMissing Exam 1:")
+    for i in range(len(names)):
+        if exam1[i] == -1:
+            print(names[i])
+            m1 += 1
+    print(f"Total missing: {m1}")
+
+    # Exam 2
+    m2 = 0
+    print("\nMissing Exam 2:")
+    for i in range(len(names)):
+        if exam2[i] == -1:
+            print(names[i])
+            m2 += 1
+    print(f"Total missing: {m2}")
+
 
 def main():
 
     names, exam1, exam2 = load_data()
     show_results(names, exam1, exam2)
+    missing_students(names, exam1, exam2)
 
 
 if __name__ == "__main__":
