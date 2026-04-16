@@ -18,6 +18,13 @@ def load_data():
         print("File not found!")
     return names, exam1, exam2
 
+def save_data(names, e1, e2):
+    file = open("English.txt", "w")
+    for i in range(len(names)):
+        file.write(f"{names[i]},{e1[i]},{e2[i]}\n")
+    file.close()
+    print("Data saved successfully.")
+
 
 def main():
 
