@@ -1,5 +1,7 @@
 #Author: Danylo Palkov
 
+import useful_functions as uf
+
 def load_data():
     names, exam1, exam2 = [], [], []
 
@@ -75,10 +77,27 @@ def top_marks(names, exam1, exam2):
 def main():
 
     names, exam1, exam2 = load_data()
-    show_results(names, exam1, exam2)
-    missing_students(names, exam1, exam2)
-    top_marks(names, exam1, exam2)
 
+    while True:
+        print("\n--- Student Results Menu ---")
+        print("1. Show Results")
+        print("2. Missing Students")
+        print("3. Top Marks")
+        print("4. Exit")
+        
+        choice = uf.get_positive_int("Select Option: ")
+        
+        if choice == 1:
+            show_results(names, exam1, exam2)
+        elif choice == 2:
+            missing_students(names, exam1, exam2)
+        elif choice == 3:
+            top_marks(names, exam1, exam2)
+        elif choice == 4:
+            save_data(names, exam1, exam2)
+            break
+        else:
+            print("Option not implemented yet.")
 
 if __name__ == "__main__":
     main()
